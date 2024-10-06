@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename ='styles/styles.css')}}"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>My Favorite Product</title>
 </head>
 <body>
-    <h1 class="text-center text-blue-400"> Welcome to My Favorite Product!!! </h1>
+    <nav class="flex  flex-col lg:flex-row text-center  justify-evenly p-10">
+        <ul class="flex flex-col lg:flex-row gap-10 text-teal-600 font-bold ">
+            <li class="hover:text-black hover:cursor-pointer hover:scale-110"> Home </li>
+            <li class="hover:text-black hover:cursor-pointer hover:scale-110"> About </li>
+            <li class="hover:text-black hover:cursor-pointer hover:scale-110"> Products </li>
+            <li class="hover:text-black hover:cursor-pointer hover:scale-110"> Reccoments </li>
+        </ul>
+    </nav>
+    <div class="mx-auto p-20 home-container text-white">
+        <h1 class="text-start mt-24 text-md md:text-lg lg:text-2xl xl:text-4xl font-bold"> Welcome to My Favorite Product!!</h1>
+    </div>
 </body>
 </html>

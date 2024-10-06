@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin : 0;
+    box-sizing: border-box;
+}
+
+.home-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    background-image: linear-gradient(
+        to top right,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+),url("https://static.vecteezy.com/system/resources/previews/002/563/549/original/white-3d-pedestal-background-with-realistic-palm-leaves-for-cosmetic-product-presentation-or-fashion-magazine-free-vector.jpg");
+}
+
+li:hover{
+    transition-duration: 2s ease-in-out;
+}
