@@ -44,3 +44,44 @@ li:hover{
 .home-container h1 {
     animation: auto-typing 4s infinite;
 }
+
+.card-container:hover{
+    transition-duration: 2s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+
+.image-card {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-card img {
+    display: block;
+    height: auto;
+    transition: filter 0.3s ease;
+  }
+  
+  .image-card .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+  }
+  
+  .image-card:hover img {
+    filter: brightness(0.7);
+  }
+  
+  .image-card:hover .text-overlay {
+    opacity: 1;
+  }
+  
