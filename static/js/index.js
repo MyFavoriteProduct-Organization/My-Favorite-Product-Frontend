@@ -30,17 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (window.location.pathname === "/home"){
-      document.getElementById("home-section").classList.add("text-orange-500/90");
-    }
-    if (window.location.pathname === "/shop"){
-      document.getElementById("shop-section").classList.add("text-orange-500/90");
-    }
-    if (window.location.pathname === "/recommends"){
-      document.getElementById("reccomends-section").classList.add("text-orange-500/90");
-    }
-    if (window.location.pathname === "/about"){
-      document.getElementById("about-section").classList.add("text-orange-500/90");
+
+    switch(window.location.pathname){
+      case "/home":
+        document.getElementById("home-section").classList.add("text-orange-500/90");
+        break;
+      case "/shop":
+        document.getElementById("shop-section").classList.add("text-orange-500/90");
+        break;
+      case "/recommends":
+        document.getElementById("reccomends-section").classList.add("text-orange-500/90");
+        break;
+      case "/about":
+        document.getElementById("about-section").classList.add("text-orange-500/90");
+        break;
+      default:
+        break;
     }
 })
 
