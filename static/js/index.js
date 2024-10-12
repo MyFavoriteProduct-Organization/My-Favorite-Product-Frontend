@@ -29,6 +29,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname === "/home"){
+      document.getElementById("home-section").classList.add("text-orange-500/90");
+    }
+    if (window.location.pathname === "/shop"){
+      document.getElementById("shop-section").classList.add("text-orange-500/90");
+    }
+    if (window.location.pathname === "/recommends"){
+      document.getElementById("reccomends-section").classList.add("text-orange-500/90");
+    }
+    if (window.location.pathname === "/about"){
+      document.getElementById("about-section").classList.add("text-orange-500/90");
+    }
+})
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".swiper-container", {

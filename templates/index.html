@@ -51,16 +51,16 @@
           </figure>
           <nav>
             <ul class="flex flex-row gap-10">
-              <li class="text-xl cursor-pointer text-orange-500/90 font-bold">
+              <li id="home-section" class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-bold">
                 <a href="{{ url_for('home') }}">Home</a>
               </li>
-              <li class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
+              <li id="about-section" class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
                 <a href="{{ url_for('about') }}">About us</a>
               </li>
-              <li class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
+              <li id="shop-section" class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium shop-section">
                 <a href="{{ url_for('shop') }}">Shop</a>
               </li>
-              <li class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
+              <li id="reccomends-section" class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium reccomend-section">
                 <a href="{{ url_for('recommends') }}">Recommends</a>
               </li>
             </ul>
