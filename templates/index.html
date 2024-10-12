@@ -30,14 +30,13 @@
     />
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="{{url_for('static', filename ='js/index.js')}}"></script>
     <!-- <script src="../static/js/index.js"></script> -->
   </head>
   <body class="dark:bg-black relative bg-white">
     <!-- NAVBAR -->
     <div
       id="navbar-container"
-      class="grid grid-cols-[1fr,80px] bg-slate-100 fixed w-full top-0 z-[100] h-20"
+      class="grid grid-cols-[1fr,80px] dark:bg-black bg-slate-100 fixed w-full top-0 z-[100] h-20"
     >
       <div class="space-container"></div>
       <header
@@ -50,34 +49,35 @@
               src="{{ url_for('static', filename='assets/logo-image.png') }}"
             />
           </figure>
-          <nav class="">
+          <nav>
             <ul class="flex flex-row gap-10">
               <li class="text-xl cursor-pointer text-orange-500/90 font-bold">
                 <a href="{{ url_for('home') }}">Home</a>
               </li>
-              <li class="text-xl cursor-pointer text-slate-900/90 font-medium">
+              <li class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
                 <a href="{{ url_for('about') }}">About us</a>
               </li>
-              <li class="text-xl cursor-pointer text-slate-900/90 font-medium">
+              <li class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
                 <a href="{{ url_for('shop') }}">Shop</a>
               </li>
-              <li class="text-xl cursor-pointer text-slate-900/90 font-medium">
+              <li class="text-xl cursor-pointer dark:text-white text-slate-900/90 font-medium">
                 <a href="{{ url_for('recommends') }}">Recommends</a>
               </li>
             </ul>
           </nav>
           <div class="theme-switch-wrapper">
-            <i class="fas fa-sun"></i>
+            <i class="fas fa-sun dark:text-white "></i>
             <label class="theme-switch" for="checkbox">
               <input type="checkbox" id="checkbox" />
               <div class="slider round"></div>
             </label>
-            <i class="fas fa-moon"></i>
+            <i class="fas fa-moon dark:text-white "></i>
           </div>
         </div>
       </header>
       <aside class="flex-1">
-        <div
+        <div 
+        id="car-section"
           class="flex bg-orange-500/75 h-20 items-center justify-center cursor-pointer hover:bg-orange-500 transition-all duration-200 ease-linear"
         >
           <div class="relative">
@@ -106,6 +106,6 @@
     >
       <p>Copyright &copy; 2024 My Favorite Product. All rights reserved</p>
     </footer>
-
   </body>
+  <script src="{{url_for('static', filename ='js/index.js')}}"></script>
 </html>

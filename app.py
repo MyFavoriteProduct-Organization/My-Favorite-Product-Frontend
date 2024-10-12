@@ -30,6 +30,10 @@ def products_by_brand(brand):
 def shop():
     return render_template('shop.html')
 
+@app.route('/car')
+def car():
+    return render_template('car_info.html')
+
 @app.route('/recommends')
 def recommends():
     return render_template('recommends.html')

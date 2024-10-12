@@ -15,16 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
   if (toggleSwitch) {
     function switchTheme(e) {
       if (e.target.checked) {
-        document.documentElement.setAttribute("data-theme", "dark");
+        html.classList.add("dark");
         localStorage.setItem("theme", "dark");
       } else {
-        document.documentElement.setAttribute("data-theme", "light");
+        html.classList.remove("dark");
         localStorage.setItem("theme", "light");
       }
     }
     toggleSwitch.addEventListener("change", switchTheme, false);
   }
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".swiper-container", {
@@ -241,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="text-slate-800/70">(inclusive all taxes)</span>
           </p>
           <div class="flex flex-row gap-3 mt-4">
-            <button class="py-2.5 px-8 rounded-3xl bg-slate-100 flex flex-row items-center justify-center gap-4">
+            <button id="card-btn" class="py-2.5 px-8 rounded-3xl bg-slate-100 flex flex-row items-center justify-center gap-4">
               <svg class="w-5" fill="#155e75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                 <path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
               </svg>
@@ -325,7 +327,54 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
         `;
+
+        const cardBtn =  document.getElementById("card-btn");
+        const card = JSON.parse(localStorage.getItem("car")) || [];
+        cardBtn.addEventListener("click", () => {
+          const productCard = {
+            id: product.id,
+            name: product.name,
+            price: product.discount_price,
+            image: product.image_url,
+            quantity: 1,
+          };
+          card.push(productCard);
+          localStorage.setItem("car", JSON.stringify(card));
+          alert("Product added to the card");
+        });
       })
       .catch((error) => console.error("Error fetching product:", error));
+  }
+});
+
+const carSection = document.getElementById("car-section");
+carSection.addEventListener("click", () => {
+  window.location.href = "/car";
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  if(window.location.pathname == "/car"){
+    const card = JSON.parse(localStorage.getItem("car"));
+    const totalPaid = document.getElementById("total-paid");
+    const cardContainer = document.querySelector(".products-card-content");
+    let total = 0;
+    card.forEach((product) => {
+      const cardItem = `
+      <div class="flex flex-row gap-4 items-center py-3 px-4 bg-slate-50 border-[1px] border-slate-300 rounded-xl">
+        <img class="w-16 h-16" src="${product.image}" alt="${product.name}" />
+        <div class="flex flex-col">
+          <h3 class="text-lg font-bold">${product.name}</h3>
+          <p class="text-slate-700/80 mt-1">Quantity: ${product.quantity}</p>
+          <p class="text-slate
+          -700/80 mt-1">Price: $${product.price.toFixed(2)}</p>
+        </div>
+      </div>
+      `;
+      cardContainer.innerHTML += cardItem;
+      total += product.price * product.quantity;
+      totalPaid.innerHTML = `<h1 class="text-xl font-bold my-5 dark:text-white text-slate-700/80"> Total to Pay: $${total.toFixed(2)}</h1>`;
+    }
+    );
   }
 });
