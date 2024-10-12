@@ -1,0 +1,556 @@
+{% extends "index.html" %} {% block title %}Home - My Website{% endblock %} 
+
+{%block content %}
+<div class="flex flex-col h-screen-minus-navbar mt-20">
+  <article class="flex-1 grid grid-cols-[1fr,80px]">
+    <div class="home-container w-full grid grid-cols-2">
+      <div class="left flex items-center justify-center">
+        <div class="hero-container border-[1.5px]">
+          <div class="absolute left-28 w-full flex flex-col gap-4">
+            <h1 class="hero-title whitespace-nowrap leading-snug">
+              Where your needs<br />two steps ahead.
+            </h1>
+            <p class="text-xl text-slate-800/90 text-pretty leading-relaxed">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et fuga
+              deserunt sed assumenda obcaecati eos, iusto, natus rerum corrupti
+              ex quod.
+            </p>
+            <button
+              class="rounded-2xl bg-cyan-600 hover:bg-cyan-700 transition-all duration-200 ease-linear py-3 px-6 mt-5 self-start"
+            >
+              <span class="text-white text-xl font-bold tracking-wide"
+                >Products for you</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="right"></div>
+    </div>
+    <div class="bg-slate-100 flex flex-col w-20 items-center justify-end">
+      <div
+        class="flex flex-col items-center gap-10 flex-1 justify-evenly w-full"
+      >
+        <span class="social-text">Facebook</span>
+        <span class="social-text">Instagram</span>
+        <span class="social-text">Twitter</span>
+        <span class="social-text">TikTok</span>
+      </div>
+      <div class="border-l-[3.5px] border-slate-300/70 h-[20%]"></div>
+    </div>
+  </article>
+</div>
+<section class="py-14 bg-white border-b-[3.5px] border-slate-300/70">
+  <div class="section-container grid grid-rows-1 grid-cols-4 gap-10">
+    <article class="flex flex-col gap-3 items-center justify-center">
+      <svg
+        class="size-12"
+        fill="#4793AF"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <path
+          d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+        />
+      </svg>
+      <h3 class="text-xl font-bold text-center">Favorite Products</h3>
+      <p class="text-center">
+        Keep track of your favorite products easily in our marketplace.
+      </p>
+    </article>
+
+    <article class="flex flex-col gap-3 items-center justify-center">
+      <svg
+        class="h-12"
+        fill="#4793AF"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 512"
+      >
+        <path
+          d="M72 88a56 56 0 1 1 112 0A56 56 0 1 1 72 88zM64 245.7C54 256.9 48 271.8 48 288s6 31.1 16 42.3l0-84.7zm144.4-49.3C178.7 222.7 160 261.2 160 304c0 34.3 12 65.8 32 90.5l0 21.5c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-26.8C26.2 371.2 0 332.7 0 288c0-61.9 50.1-112 112-112l32 0c24 0 46.2 7.5 64.4 20.3zM448 416l0-21.5c20-24.7 32-56.2 32-90.5c0-42.8-18.7-81.3-48.4-107.7C449.8 183.5 472 176 496 176l32 0c61.9 0 112 50.1 112 112c0 44.7-26.2 83.2-64 101.2l0 26.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32zm8-328a56 56 0 1 1 112 0A56 56 0 1 1 456 88zM576 245.7l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM320 32a64 64 0 1 1 0 128 64 64 0 1 1 0-128zM240 304c0 16.2 6 31 16 42.3l0-84.7c-10 11.3-16 26.1-16 42.3zm144-42.3l0 84.7c10-11.3 16-26.1 16-42.3s-6-31.1-16-42.3zM448 304c0 44.7-26.2 83.2-64 101.2l0 42.8c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-42.8c-37.8-18-64-56.5-64-101.2c0-61.9 50.1-112 112-112l32 0c61.9 0 112 50.1 112 112z"
+        />
+      </svg>
+      <h3 class="text-xl font-bold text-center">Recommended Products</h3>
+      <p class="text-center">
+        Discover products recommended just for you based on your preferences.
+      </p>
+    </article>
+
+    <article class="flex flex-col gap-3 items-center justify-center">
+      <svg
+        class="h-12"
+        fill="#4793AF"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 576 512"
+      >
+        <path
+          d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20l44 0 0 44c0 11 9 20 20 20s20-9 20-20l0-44 44 0c11 0 20-9 20-20s-9-20-20-20l-44 0 0-44c0-11-9-20-20-20s-20 9-20 20l0 44-44 0c-11 0-20 9-20 20z"
+        />
+      </svg>
+      <h3 class="text-xl font-bold text-center">New Arrivals</h3>
+      <p class="text-center">
+        Stay updated with the latest products added to our marketplace.
+      </p>
+    </article>
+
+    <article class="flex flex-col gap-3 items-center justify-center">
+      <svg
+        class="size-12"
+        fill="#4793AF"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 576 512"
+      >
+        <path
+          d="M151.6 42.4C145.5 35.8 137 32 128 32s-17.5 3.8-23.6 10.4l-88 96c-11.9 13-11.1 33.3 2 45.2s33.3 11.1 45.2-2L96 146.3 96 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-301.7 32.4 35.4c11.9 13 32.2 13.9 45.2 2s13.9-32.2 2-45.2l-88-96zM320 480l32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-32 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm0-128l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm0-128l160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm0-128l224 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32z"
+        />
+      </svg>
+      <h3 class="text-xl font-bold text-center">Best Sellers</h3>
+      <p class="text-center">
+        Check out the most popular products in our marketplace.
+      </p>
+    </article>
+  </div>
+</section>
+<!-- RECOMMENDED FOR THE USER -->
+<section class="py-16 bg-white">
+  <div class="section-container">
+    <div class="flex flex-row justify-between">
+      <h2 class="text-2xl tracking-normal font-bold">Recommended for you</h2>
+      <div class="flex gap-4">
+        <button class="recommend-swiper-button-prev bg-[#ea580c]">
+          <i class="fa-solid fa-chevron-left fa-base"></i>
+        </button>
+        <button class="recommend-swiper-button-next bg-[#ea580c]">
+          <i class="fa-solid fa-chevron-right fa-base"></i>
+        </button>
+      </div>
+    </div>
+    <div class="recommend-swiper-container overflow-hidden mt-8">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <article
+            class="flex flex-col justify-center border-[1px] shadow-sm rounded-2xl overflow-hidden"
+          >
+            <figure class="relative">
+              <img
+                class="h-full w-full"
+                src="/static/assets/product-image.webp"
+              />
+              <div
+                class="absolute top-0 left-0 bg-red-500 text-white text-base font-bold pl-3 pr-6 py-2 rounded-br-full"
+              >
+                20% OFF
+              </div>
+            </figure>
+            <div class="flex flex-col gap-2 justify-center p-4 bg-slate-50">
+              <h2 class="text-xl text-black font-bold">
+                Cream Beauty Bathing Bar
+              </h2>
+              <div class="flex flex-row justify-between items-center">
+                <p class="italic">
+                  <span class="line-through text-base text-slate-400"
+                    >$10.00</span
+                  >
+                  <span class="ml-2 text-xl text-orange-500 font-bold"
+                    >$8.00</span
+                  >
+                </p>
+              </div>
+              <div class="flex flex-row gap-2 w-full mt-2">
+                <button
+                  class="border-cyan-700 transition-all duration-200 ease-linear border-2 py-2 px-3 rounded-xl group"
+                >
+                  <i
+                    class="fa-solid fa-circle-info fa-lg text-cyan-700 group-hover:scale-110 transition-transform duration-200 ease-linear"
+                  ></i>
+                </button>
+                <button
+                  class="bg-cyan-600/90 hover:bg-cyan-700 transition-all duration-200 ease-linear flex-1 w-full rounded-xl flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-bag-shopping text-white fa-lg"></i>
+                  <span class="ml-2 text-base font-bold text-white"
+                    >Add to cart</span
+                  >
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article
+            class="flex flex-col justify-center border-[1px] shadow-sm rounded-2xl overflow-hidden"
+          >
+            <figure class="relative">
+              <img
+                class="h-full w-full"
+                src="https://www.bigbasket.com/media/uploads/p/l/1202759_3-amul-butter-pasteurized.jpg"
+              />
+              <div
+                class="absolute top-0 left-0 bg-red-500 text-white text-base font-bold pl-3 pr-6 py-2 rounded-br-full"
+              >
+                20% OFF
+              </div>
+            </figure>
+            <div class="flex flex-col gap-2 justify-center p-4 bg-slate-50">
+              <h2 class="text-xl text-black font-bold">
+                Cream Beauty Bathing Bar
+              </h2>
+              <div class="flex flex-row justify-between items-center">
+                <p class="italic">
+                  <span class="line-through text-base text-slate-400"
+                    >$10.00</span
+                  >
+                  <span class="ml-2 text-xl text-orange-500 font-bold"
+                    >$8.00</span
+                  >
+                </p>
+              </div>
+              <div class="flex flex-row gap-2 w-full mt-2">
+                <button
+                  class="border-cyan-700 transition-all duration-200 ease-linear border-2 py-2 px-3 rounded-xl group"
+                >
+                  <i
+                    class="fa-solid fa-circle-info fa-lg text-cyan-700 group-hover:scale-110 transition-transform duration-200 ease-linear"
+                  ></i>
+                </button>
+                <button
+                  class="bg-cyan-600/90 hover:bg-cyan-700 transition-all duration-200 ease-linear flex-1 w-full rounded-xl flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-bag-shopping text-white fa-lg"></i>
+                  <span class="ml-2 text-base font-bold text-white"
+                    >Add to cart</span
+                  >
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article
+            class="flex flex-col justify-center border-[1px] shadow-sm rounded-2xl overflow-hidden"
+          >
+            <figure class="relative">
+              <img
+                class="h-full w-full"
+                src="https://www.bigbasket.com/media/uploads/p/l/10000415_14-bb-royal-rice-raw-sona-masoori.jpg"
+              />
+              <div
+                class="absolute top-0 left-0 bg-red-500 text-white text-base font-bold pl-3 pr-6 py-2 rounded-br-full"
+              >
+                20% OFF
+              </div>
+            </figure>
+            <div class="flex flex-col gap-2 justify-center p-4 bg-slate-50">
+              <h2 class="text-xl text-black font-bold">
+                Cream Beauty Bathing Bar
+              </h2>
+              <div class="flex flex-row justify-between items-center">
+                <p class="italic">
+                  <span class="line-through text-base text-slate-400"
+                    >$10.00</span
+                  >
+                  <span class="ml-2 text-xl text-orange-500 font-bold"
+                    >$8.00</span
+                  >
+                </p>
+              </div>
+              <div class="flex flex-row gap-2 w-full mt-2">
+                <button
+                  class="border-cyan-700 transition-all duration-200 ease-linear border-2 py-2 px-3 rounded-xl group"
+                >
+                  <i
+                    class="fa-solid fa-circle-info fa-lg text-cyan-700 group-hover:scale-110 transition-transform duration-200 ease-linear"
+                  ></i>
+                </button>
+                <button
+                  class="bg-cyan-600/90 hover:bg-cyan-700 transition-all duration-200 ease-linear flex-1 w-full rounded-xl flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-bag-shopping text-white fa-lg"></i>
+                  <span class="ml-2 text-base font-bold text-white"
+                    >Add to cart</span
+                  >
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article
+            class="flex flex-col justify-center border-[1px] shadow-sm rounded-2xl overflow-hidden"
+          >
+            <figure class="relative">
+              <img
+                class="h-full w-full"
+                src="https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg"
+              />
+              <div
+                class="absolute top-0 left-0 bg-red-500 text-white text-base font-bold pl-3 pr-6 py-2 rounded-br-full"
+              >
+                20% OFF
+              </div>
+            </figure>
+            <div class="flex flex-col gap-2 justify-center p-4 bg-slate-50">
+              <h2 class="text-xl text-black font-bold">
+                Cream Beauty Bathing Bar
+              </h2>
+              <div class="flex flex-row justify-between items-center">
+                <p class="italic">
+                  <span class="line-through text-base text-slate-400"
+                    >$10.00</span
+                  >
+                  <span class="ml-2 text-xl text-orange-500 font-bold"
+                    >$8.00</span
+                  >
+                </p>
+              </div>
+              <div class="flex flex-row gap-2 w-full mt-2">
+                <button
+                  class="border-cyan-700 transition-all duration-200 ease-linear border-2 py-2 px-3 rounded-xl group"
+                >
+                  <i
+                    class="fa-solid fa-circle-info fa-lg text-cyan-700 group-hover:scale-110 transition-transform duration-200 ease-linear"
+                  ></i>
+                </button>
+                <button
+                  class="bg-cyan-600/90 hover:bg-cyan-700 transition-all duration-200 ease-linear flex-1 w-full rounded-xl flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-bag-shopping text-white fa-lg"></i>
+                  <span class="ml-2 text-base font-bold text-white"
+                    >Add to cart</span
+                  >
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article
+            class="flex flex-col justify-center border-[1px] shadow-sm rounded-2xl overflow-hidden"
+          >
+            <figure class="relative">
+              <img
+                class="h-full w-full"
+                src="https://www.bigbasket.com/media/uploads/p/l/10000468_12-bb-royal-maida.jpg"
+              />
+              <div
+                class="absolute top-0 left-0 bg-red-500 text-white text-base font-bold pl-3 pr-6 py-2 rounded-br-full"
+              >
+                20% OFF
+              </div>
+            </figure>
+            <div class="flex flex-col gap-2 justify-center p-4 bg-slate-50">
+              <h2 class="text-xl text-black font-bold">
+                Cream Beauty Bathing Bar
+              </h2>
+              <div class="flex flex-row justify-between items-center">
+                <p class="italic">
+                  <span class="line-through text-base text-slate-400"
+                    >$10.00</span
+                  >
+                  <span class="ml-2 text-xl text-orange-500 font-bold"
+                    >$8.00</span
+                  >
+                </p>
+              </div>
+              <div class="flex flex-row gap-2 w-full mt-2">
+                <button
+                  class="border-cyan-700 transition-all duration-200 ease-linear border-2 py-2 px-3 rounded-xl group"
+                >
+                  <i
+                    class="fa-solid fa-circle-info fa-lg text-cyan-700 group-hover:scale-110 transition-transform duration-200 ease-linear"
+                  ></i>
+                </button>
+                <button
+                  class="bg-cyan-600/90 hover:bg-cyan-700 transition-all duration-200 ease-linear flex-1 w-full rounded-xl flex items-center justify-center"
+                >
+                  <i class="fa-solid fa-bag-shopping text-white fa-lg"></i>
+                  <span class="ml-2 text-base font-bold text-white"
+                    >Add to cart</span
+                  >
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SHOPS BY BRAND -->
+<section
+  class="py-20 bg-cyan-100/65 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/static/assets/background-shops.webp')"
+>
+  <div class="section-container">
+    <div class="flex flex-row justify-center">
+      <div class="flex flex-col gap-3">
+        <h1
+          class="text-cyan-700 text-2xl text-center uppercase font-bold tracking-wider"
+        >
+          Shop by brands
+        </h1>
+        <div class="flex flex-row gap-1 self-center">
+          <div class="w-14 h-1 rounded-lg bg-cyan-700"></div>
+          <div class="size-1 bg-cyan-700 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row justify-between gap-8 overflow-hidden mt-14">
+      <a
+        href="{{ url_for('products_by_brand', brand='Fresho') }}"
+        class="relative flex items-center justify-center cursor-pointer group"
+      >
+        <img
+          src="/static/assets/brand-background.png"
+          class="size-52"
+          alt="Beauty"
+        />
+        <img
+          src="/static/assets/fresho-brand.jpg"
+          class="size-36 absolute inset-0 m-auto -translate-x-[2px] -translate-y-2 transition-transform duration-300 group-hover:scale-110"
+        />
+      </a>
+
+      <a
+        href="{{ url_for('products_by_brand', brand='BBHome') }}"
+        class="relative flex items-center justify-center cursor-pointer group"
+      >
+        <img
+          src="/static/assets/brand-background.png"
+          class="size-52"
+          alt="Beauty"
+        />
+        <img
+          src="/static/assets/BBHome-brand.svg"
+          class="size-[6.5rem] absolute inset-0 m-auto -translate-x-[5px] -translate-y-2 transition-transform duration-300 group-hover:scale-110"
+        />
+      </a>
+
+      <a
+        href="{{ url_for('products_by_brand', brand='BBRoyal') }}"
+        class="relative flex items-center justify-center cursor-pointer group"
+      >
+        <img
+          src="/static/assets/brand-background.png"
+          class="size-52"
+          alt="Beauty"
+        />
+        <img
+          src="/static/assets/BBRoyal-brand.jpg"
+          class="size-32 absolute inset-0 m-auto -translate-x-[2px] -translate-y-0 transition-transform duration-300 group-hover:scale-110"
+        />
+      </a>
+
+      <a
+        href="{{ url_for('products_by_brand', brand='Healthvit') }}"
+        class="relative flex items-center justify-center cursor-pointer group"
+      >
+        <img
+          src="/static/assets/brand-background.png"
+          class="size-52"
+          alt="Beauty"
+        />
+        <img
+          src="/static/assets/healtvit-brnad.png"
+          class="size-36 absolute inset-0 m-auto -translate-x-[5px] -translate-y-1 transition-transform duration-300 group-hover:scale-110"
+        />
+      </a>
+
+      <a
+        href="{{ url_for('products_by_brand', brand='Soulflower') }}"
+        class="relative flex items-center justify-center cursor-pointer group"
+      >
+        <img
+          src="/static/assets/brand-background.png"
+          class="size-52"
+          alt="Beauty"
+        />
+        <img
+          src="/static/assets/soulflower-brand.png"
+          class="size-28 absolute inset-0 m-auto -translate-x-[5px] -translate-y-2 transition-transform duration-300 group-hover:scale-110"
+        />
+      </a>
+    </div>
+  </div>
+</section>
+<!-- SHOP BY CATEGORIES -->
+<section class="py-16 bg-white">
+  <div class="section-container">
+    <div class="flex flex-row justify-between">
+      <h2 class="text-2xl tracking-wide font-bold">Featured Categories</h2>
+      <div class="flex gap-4">
+        <button class="swiper-button-prev">
+          <i class="fa-solid fa-chevron-left fa-base"></i>
+        </button>
+        <button class="swiper-button-next">
+          <i class="fa-solid fa-chevron-right fa-base"></i>
+        </button>
+      </div>
+    </div>
+    <div class="swiper-container overflow-hidden mt-8">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a
+            href="{{ url_for('products_by_category', category='Beauty&Hygiene') }}"
+            class="flex flex-col gap-2 items-center justify-center bg-red-50 p-5 w-68 h-68 shadow-sm"
+          >
+            <img src="/static/assets/beauty-image.png" class="size-44" />
+            <h2 class="text-lg font-bold">Beauty & Hygiene</h2>
+            <p class="font-bold text-slate-700/80">
+              <span class="counter-product">32</span> products
+            </p>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a
+            href="{{ url_for('products_by_category', category='Kitchen&Pets') }}"
+            class="flex flex-col gap-2 items-center justify-center bg-green-100/50 p-5 w-68 h-68 shadow-sm"
+          >
+            <img src="/static/assets/kitchen-image.png" class="size-44" />
+            <h2 class="text-lg font-bold">Kitchen, Garden & Pets</h2>
+            <p class="font-bold text-slate-700/80">
+              <span class="counter-product">45</span> products
+            </p>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a
+            href="{{ url_for('products_by_category', category='Foodgrains&Masala') }}"
+            class="flex flex-col gap-2 items-center justify-center bg-yellow-50 p-5 w-68 h-68 shadow-sm"
+          >
+            <img src="/static/assets/foodgrains-image.png" class="size-44" />
+            <h2 class="text-lg font-bold">Foodgrains, Oil & Masala</h2>
+            <p class="font-bold text-slate-700/80">
+              <span class="counter-product">28</span> products
+            </p>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a
+            href="{{ url_for('products_by_category', category='Cleaning&Household') }}"
+            class="flex flex-col gap-2 items-center justify-center bg-blue-50 p-5 w-68 h-68 shadow-sm"
+          >
+            <img src="/static/assets/cleaning-image.jpg" class="size-44" />
+            <h2 class="text-lg font-bold">Cleaning & Household</h2>
+            <p class="font-bold text-slate-700/80">
+              <span class="counter-product">37</span> products
+            </p>
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a
+            href="{{ url_for('products_by_category', category='Gourmet&Worldfood') }}"
+            class="flex flex-col gap-2 items-center justify-center bg-purple-50 p-5 w-68 h-68 shadow-sm"
+          >
+            <img src="/static/assets/gorumet-image.png" class="size-44" />
+            <h2 class="text-lg font-bold">Gourmet & World Food</h2>
+            <p class="font-bold text-slate-700/80">
+              <span class="counter-product">22</span> products
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

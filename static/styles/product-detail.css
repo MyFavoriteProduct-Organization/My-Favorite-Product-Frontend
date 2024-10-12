@@ -1,0 +1,29 @@
+.original-price-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #666666;
+  transform: rotate(-15deg);
+  
+}
+
+.diagonal-lines::before,
+.diagonal-lines::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.diagonal-lines::before {
+  background: linear-gradient(to bottom right, transparent calc(50% - 1px), #666666, transparent calc(50% + 1px));
+}
+
+.diagonal-lines::after {
+  background: linear-gradient(to top right, transparent calc(50% - 1px), #666666, transparent calc(50% + 1px));
+}
