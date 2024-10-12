@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const currentTheme = localStorage.getItem("theme") || "light";
   const html = document.documentElement;
@@ -376,5 +378,53 @@ document.addEventListener("DOMContentLoaded", function () {
       totalPaid.innerHTML = `<h1 class="text-xl font-bold my-5 dark:text-white text-slate-700/80"> Total to Pay: $${total.toFixed(2)}</h1>`;
     }
     );
+    const btnClear = document.getElementById("btn-clear");
+    const btnPay = document.getElementById("btn-pay");
+    if (card.length > 0){
+      btnClear.style.display = "block";
+      btnPay.style.display = "block";
+    }
+    btnClear.addEventListener("click", () => {
+      if(confirm("Are you sure to clear the card?")){
+        localStorage.removeItem("car");
+        cardContainer.innerHTML = "";
+        totalPaid.innerHTML = "";
+        btnClear.style.display = "none";
+        btnPay.style.display = "none";
+      }
+    });
+
+    btnPay.addEventListener("click", async () => {
+      if (confirm("Are you sure to pay?")) {
+        try {
+          const response = await fetch(`http://localhost:8000/api/v1/purchases/?amount=${total}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          
+          const purchase = await response.json(); 
+    
+          for (let index = 0; index < card.length; index++) {
+            await fetch(`http://localhost:8000/api/v1/product_purchases/?product_id=${card[index].id}&purchase_id=${purchase.id}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+          }
+          alert("Thanks for your purchase!");
+          localStorage.removeItem("car");
+          cardContainer.innerHTML = "";
+          totalPaid.innerHTML = "";
+          btnClear.style.display = "none";
+          btnPay.style.display = "none";
+        } catch (error) {
+          alert("Error during the purchase process.");
+        }
+      }
+    });
+    
   }
 });
