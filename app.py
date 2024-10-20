@@ -2,6 +2,8 @@ from flask import Flask, render_template
 from utils.graph import Graph
 from utils.constant import Constant
 import requests
+import concurrent.futures
+import functools
 
 app = Flask(__name__)
 
@@ -37,6 +39,13 @@ def shop():
 def car():
     return render_template('car_info.html')
 
+@functools.lru_cache(maxsize=1000)
+def get_purchases(product_id):
+    new_const = Constant(f"product_purchases/get-by-product-id/{product_id}")
+    new_endpoint = new_const.get_endpoint()
+    new_response = requests.get(new_endpoint)
+    return new_response.json()
+
 @app.route('/recommends')
 def recommends():
     graph = Graph()
@@ -44,18 +53,29 @@ def recommends():
     endpoint = const.get_endpoint()
     response = requests.get(endpoint)
     data = response.json()
-    for product in data:
-        product_info = {
-            'name': product['name'],
-            'price': product['price'],
-            'discount_price': product.get('discount_price', None),
-            'quantity': product['quantity'],
-            'subcategory': product['subcategory'],
-            'category': product['category'],
-            'image_url': product['image_url'],
-            'absolute_url': product['absolute_url']
-        }
-        graph.add_node(product['id'],product_info)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+        future_to_product = {executor.submit(get_purchases, product['id']): product for product in data}
+        for future in concurrent.futures.as_completed(future_to_product):
+            product = future_to_product[future]
+            purchases = future.result() 
+
+            product_info = {
+                'name': product['name'],
+                'price': product['price'],
+                'discount_price': product.get('discount_price', None),
+                'quantity': product['quantity'],
+                'subcategory': product['subcategory'],
+                'category': product['category'],
+                'image_url': product['image_url'],
+                'absolute_url': product['absolute_url']
+            }
+
+            graph.add_node(product['id'], product_info)
+
+            for neighbor in purchases:
+                graph.add_edge(product['id'], neighbor)
+
     graph.quick_union()
     recommended = graph.parent
     limited_recommended = dict(list(recommended.items())[:20])
