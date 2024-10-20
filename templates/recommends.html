@@ -4,8 +4,8 @@
 
 {% block content %}
 <div class="mt-24 text-center font-bold">
-  <h1>Recomendaciones para ti.</h1>
-  <div class="mt-20 flex flex-wrap justify-center items-center gap-10">
+  <h1 class="text-xl md:text-2xl lg:text-3xl dark:text-white">Recomendaciones para ti.</h1>
+  <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center mx-10 gap-5 my-10">
     {% for key, product in recommended.items() %}
       <div class="relative card-container">
         <article class="product-card bg-slate-50 flex flex-col justify-center border-[1px] shadow-sm rounded-2xl overflow-hidden">
@@ -22,7 +22,7 @@
               </h3>
               <div class="self-start flex flex-row gap-2 items-center font-bold">
                 <i class="fa-solid fa-star text-yellow-500/80"></i>
-                {{ product['info'].get('rating', 'N.A') }}  {# Cambié a get para evitar errores si la clave no existe #}
+                {{ product['info'].get('rating', 'N.A') }}
               </div>
             </div>
             <p class="text-slate-700/80">{{ product['info']['subcategory'] }}</p>
