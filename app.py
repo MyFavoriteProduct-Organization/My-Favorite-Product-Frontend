@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from utils.graph import Graph
-
+from utils.constant import Constant
+import requests
 
 app = Flask(__name__)
 
@@ -38,8 +39,28 @@ def car():
 
 @app.route('/recommends')
 def recommends():
-    return render_template('recommends.html')
+    graph = Graph()
+    const = Constant('products/')
+    endpoint = const.get_endpoint()
+    response = requests.get(endpoint)
+    data = response.json()
+    for product in data:
+        product_info = {
+            'name': product['name'],
+            'price': product['price'],
+            'discount_price': product.get('discount_price', None),
+            'quantity': product['quantity'],
+            'subcategory': product['subcategory'],
+            'category': product['category'],
+            'image_url': product['image_url'],
+            'absolute_url': product['absolute_url']
+        }
+        graph.add_node(product['id'],product_info)
+    graph.quick_union()
+    recommended = graph.parent
+    limited_recommended = dict(list(recommended.items())[:20])
+    return render_template('recommends.html', recommended=limited_recommended)
 
 if __name__ == '__main__':
-    graph = Graph()
+    
     app.run(debug=True)
