@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from utils.graph import Graph
+
 
 app = Flask(__name__)
 
@@ -39,4 +41,5 @@ def recommends():
     return render_template('recommends.html')
 
 if __name__ == '__main__':
+    graph = Graph()
     app.run(debug=True)
