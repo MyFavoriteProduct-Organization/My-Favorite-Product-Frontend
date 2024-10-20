@@ -1,0 +1,39 @@
+{% extends "index.html" %} {% block title %}Shop - My Website{% endblock %} {%
+block content %}
+<main class="bg-white mt-20">
+  <section class="w-full">
+    <figure class="h-[275px] w-full relative product-banner-overlay">
+      <img
+        class="h-full object-fill w-full"
+        src="/static/assets/products_banner.webp"
+      />
+    </figure>
+    <div class="section-container py-16">
+      <div class="flex flex-row justify-between items-center w-full">
+        <h2 class="text-xl font-bold text-cyan-700 flex-grow">
+          Found <span class="text-orange-500">100</span> products for "Healty &
+          Higyene"
+        </h2>
+        <div class="container w-min">
+          <div class="dropdown flex flex-row items-center gap-3">
+            <div class="label whitespace-nowrap text-xl font-bold">
+              Sort products by:
+            </div>
+            <div class="select">
+              <div class="selected placeholder">Selected</div>
+              <div class="caret"></div>
+            </div>
+            <ul class="menu">
+              <li>Quantity</li>
+              <li>Pricing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 w-full shop-products-container">
+        
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
