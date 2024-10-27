@@ -58,7 +58,7 @@ def recommends():
         future_to_product = {executor.submit(get_purchases, product['id']): product for product in data}
         for future in concurrent.futures.as_completed(future_to_product):
             product = future_to_product[future]
-            purchases = future.result() 
+            purchases = future.result()  
 
             product_info = {
                 'name': product['name'],
@@ -72,13 +72,27 @@ def recommends():
             }
 
             graph.add_node(product['id'], product_info)
-
             for neighbor in purchases:
-                graph.add_edge(product['id'], neighbor)
+                if isinstance(neighbor, dict):
+                    neighbor_id = neighbor.get('id') 
+                    if neighbor_id:
+                        graph.add_edge(product['id'], neighbor_id)
+
+
 
     graph.quick_union()
+    graph.dfs(graph.get_first_node_position())
     recommended = graph.parent
+    ## Para debuggear las conexiones
+    """  print("Primeras 10 conexiones:")
+    count = 0
+    for node_id, data in graph.parent.items():
+        print(f"Nodo {node_id} - Conexiones: {data['connection']}")
+        count += 1
+        if count >= 10:  
+           break """
     limited_recommended = dict(list(recommended.items())[:20])
+    
     return render_template('recommends.html', recommended=limited_recommended)
 
 if __name__ == '__main__':

@@ -4,30 +4,47 @@ class Graph:
         self.parent = {} 
     
     def add_node(self, node, product_info):
-        if node not in self.graph:
-            self.graph[node] = []
+            if node not in self.graph:
+                self.graph[node] = []
+                self.parent[node] = {
+                    'info': {
+                        'name': product_info['name'],
+                        'price': product_info['price'],
+                        'discount_price': product_info.get('discount_price', None),
+                        'quantity': product_info['quantity'],
+                        'subcategory': product_info['subcategory'],
+                        'category': product_info['category'],
+                        'image': product_info['image_url'],
+                        'absolute_url': product_info['absolute_url']
+                    },
+                    'parent': node,
+                    'connection': 0
+                }
+
+    def add_edge(self, node, neighbor_id):
+        if node not in self.parent:
             self.parent[node] = {
-                'info': {
-                    'name': product_info['name'],  
-                    'price': product_info['price'],  
-                    'discount_price': product_info.get('discount_price', None),  
-                    'quantity': product_info['quantity'],  
-                    'subcategory': product_info['subcategory'],  
-                    'category': product_info['category'],  
-                    'image': product_info['image_url'], 
-                    'absolute_url': product_info['absolute_url']
-                },
-                'parent': node  
+                'info': {},
+                'parent': node,
+                'connection': 0
             }
 
-    def add_edge(self, node, product_info):
-        if product_info['id'] not in self.parent:
-            self.parent[product_info['id']] = {
-                'info': {},  
-                'parent': product_info['id']  
+        if neighbor_id not in self.parent:
+            self.parent[neighbor_id] = {
+                'info': {},
+                'parent': neighbor_id,
+                'connection': 0
             }
-        self.graph.setdefault(node, []).append(product_info['id'])
-        self.graph.setdefault(product_info['id'], []).append(node)
+
+        if neighbor_id not in self.graph[node]:
+            self.graph.setdefault(node, []).append(neighbor_id)
+            self.graph.setdefault(neighbor_id, []).append(node)
+            self.parent[neighbor_id]['connection'] += 1
+
+
+        
+    def get_first_node_position(self):
+        return list(self.graph.keys())[0]
 
 
     def find(self, node):
@@ -55,13 +72,12 @@ class Graph:
                 new_graph[root].append(node)
         self.graph = new_graph
 
-    def dfs(self, start, visited=None):
-        if visited is None:
-            visited = set()
+    def dfs(self, start):
+        visited = set()
         visited.add(start) 
         for neighbor in self.graph.get(start, []):  
             if neighbor not in visited:
-                self.dfs(neighbor, visited)
+                self.dfs(neighbor)
         return visited
 
         
