@@ -41,6 +41,26 @@ class Graph:
             self.graph.setdefault(neighbor_id, []).append(node)
             self.parent[neighbor_id]['connection'] += 1
 
+    def add_edge_weight(self, node, neighbor_id, weight):
+        if node not in self.parent:
+            self.parent[node] = {
+                'info': {},
+                'parent': node,
+                'connection': 0
+            }
+
+        if neighbor_id not in self.parent:
+            self.parent[neighbor_id] = {
+                'info': {},
+                'parent': neighbor_id,
+                'connection': 0
+            }
+
+        if neighbor_id not in self.graph[node]:
+            self.graph.setdefault(node, []).append((neighbor_id, weight))
+            self.graph.setdefault(neighbor_id, []).append((node, weight))
+            self.parent[neighbor_id]['connection'] += 1
+
 
         
     def get_first_node_position(self):
@@ -79,6 +99,33 @@ class Graph:
             if neighbor not in visited:
                 self.dfs(neighbor)
         return visited
+
+    def dijkstra(self, start):
+        import heapq
+
+        distances = {node: float('inf') for node in self.graph}
+        distances[start] = 0
+        priority_queue = [(0, start)]
+        visited = set()
+
+        while priority_queue:
+            current_distance, current_node = heapq.heappop(priority_queue)
+
+            if current_node in visited:
+                continue
+
+            visited.add(current_node)
+
+            for neighbor, weight in self.graph[current_node]:
+                distance = current_distance + weight
+
+                if distance < distances[neighbor]:
+                    distances[neighbor] = distance
+                    heapq.heappush(priority_queue, (distance, neighbor))
+
+        # Crear un diccionario de nodos recomendados con sus distancias
+        recommended = {node: self.parent[node]['info'] for node in distances if node != start}
+        return recommended
 
         
         

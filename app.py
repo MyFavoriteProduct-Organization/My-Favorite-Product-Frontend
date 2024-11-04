@@ -1,3 +1,5 @@
+import random
+
 from flask import Flask, render_template
 from utils.graph import Graph
 from utils.constant import Constant
@@ -21,7 +23,38 @@ def about():
 
 @app.route('/product/<int:id>')
 def product(id):
-    return render_template('product.html', product_id=id)
+    graph = Graph()
+    const = Constant('products/')
+    endpoint = const.get_endpoint()
+    response = requests.get(endpoint)
+    data = response.json()
+
+    # Agregar nodos y relaciones aleatorias
+    for product in data:
+        product_info = {
+            'name': product['name'],
+            'price': product['price'],
+            'discount_price': product.get('discount_price', None),
+            'quantity': product['quantity'],
+            'subcategory': product['subcategory'],
+            'category': product['category'],
+            'image_url': product['image_url'],
+            'absolute_url': product['absolute_url']
+        }
+        graph.add_node(product['id'], product_info)
+
+    for product in data:
+        for _ in range(15):
+            neighbor_id = random.choice(data)['id']
+            weight = random.randint(1, 5)
+            graph.add_edge_weight(product['id'], neighbor_id, weight)
+
+    # Calcular las recomendaciones usando Dijkstra
+    recommended = graph.dijkstra(id)
+    limited_recommended = dict(list(recommended.items())[:20])
+
+    return render_template('product.html', product_id=id, recommended=limited_recommended)
+
 
 @app.route('/products/<category>')
 def products_by_category(category):
