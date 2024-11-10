@@ -82,13 +82,43 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  const swiper = new Swiper(".swiper-product-recommendations", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+    },
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const newSwiper = new Swiper(".recommend-swiper-container", {
     slidesPerView: 4,
     spaceBetween: 30,
     loop: true,
     autoplay: {
-      delay: 5000,
-      disableOnInteraction: true,
+      delay: 6000,
+      disableOnInteraction: false,
     },
     navigation: {
       nextEl: ".recommend-swiper-button-next",
