@@ -3,7 +3,40 @@
 {% block title %}About Us - My Website{% endblock %}
 
 {% block content %}
-<div class="mt-20">
-  <h1>Esta es la página sobre nosotros.</h1>
-</div>
+<header class="mx-auto mt-48 text-center ">
+  <h1 class="text-xl md:text-2xl lg:text-3xl font-bold text-black dark:text-white "> About the team developer </h1>
+  <div class="flex flex-wrap justify-center items-center ">
+      <div class="flex flex-col items-center justify-center shadow-gray-400 p-10 card-container">
+          <div class="image-card">
+              <img class="rounded-lg" src="https://raw.githubusercontent.com/Open-Source-SW54-Group-3-ArtCollab/Report/refs/heads/main/assets/images/Mathias-Jave-Diaz.png" width="250"  height="100"/>
+              <div class="text-overlay">Estudiante de 6to ciclo de la Universidad Peruana de Ciencias Aplicadas (UPC)</div>
+          </div>
+          <div class="flex flex-col shadow-md w-full p-2 rounded-lg bg-white  ">
+              <h3 class="text-center text-xl font-bold text-black ">Mathias Jave Diaz</h3>
+              <p class="text-center text-sm text-black"> Ingenieria de Software</p>
+          </div>
+      </div>
+      <div class="flex flex-col items-center justify-center shadow-gray-400 p-10 card-container">
+          <div class="image-card">
+              <img class="rounded-lg" src="https://media.discordapp.net/attachments/1285798356945473703/1304993881007460542/Gustavo-Huilca-Chipana.png?ex=673169c2&is=67301842&hm=c099f314d84f5029fcf9fb05943e342183aa476d3bba031764cbcf3bbbef7686&=&format=webp" width="250" height="100"/>
+              <div class="text-overlay">Estudiante de 6to ciclo de la Universidad Peruana de Ciencias Aplicadas (UPC)</div>
+          </div>
+          <div class="flex flex-col shadow-md w-full p-2 rounded-lg bg-white  ">
+              <h3 class="text-center text-xl font-bold text-black "> Gustavo Huilca Chipana</h3>
+              <p class="text-center text-sm text-black"> Ingenieria de Software</p>
+          </div>
+      </div>
+      <div class="flex flex-col items-center justify-center shadow-gray-400 p-10 card-container">
+          <div class="image-card">
+              <img class="rounded-lg" src="https://media.discordapp.net/attachments/1285798356945473703/1304993971184861264/imagen.jpg?ex=673169d8&is=67301858&hm=0d94060a522034c892b7017d7f9fe25f13f14613ed3d6d3cc7203f8d3f6212b8&=&format=webp" width="250"  height="100"/>
+              <div class="text-overlay">Estudiante de 6to ciclo de la Universidad Peruana de Ciencias Aplicadas (UPC)</div>
+          </div>
+          <div class="flex flex-col shadow-md w-full p-2 rounded-lg bg-white  ">
+              <h3 class="text-center text-xl font-bold text-black ">Nicolas Esteban Garcia</h3>
+              <p class="text-center text-sm text-black"> Ingenieria de Software</p>
+          </div>
+      </div>
+  </div>
+</header>
+
 {% endblock %}
