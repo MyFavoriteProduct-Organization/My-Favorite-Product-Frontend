@@ -41,6 +41,7 @@ def product(id):
             'image_url': product['image_url'],
             'absolute_url': product['absolute_url']
         }
+        print(product_info)
         graph.add_node(product['id'], product_info)
 
     for product in data:
