@@ -41,7 +41,6 @@ def product(id):
             'image_url': product['image_url'],
             'absolute_url': product['absolute_url']
         }
-        print(product_info)
         graph.add_node(product['id'], product_info)
 
     for product in data:
@@ -117,14 +116,6 @@ def recommends():
     graph.quick_union()
     graph.dfs(graph.get_first_node_position())
     recommended = graph.parent
-    ## Para debuggear las conexiones
-    """  print("Primeras 10 conexiones:")
-    count = 0
-    for node_id, data in graph.parent.items():
-        print(f"Nodo {node_id} - Conexiones: {data['connection']}")
-        count += 1
-        if count >= 10:  
-           break """
     limited_recommended = dict(list(recommended.items())[:20])
     
     return render_template('recommends.html', recommended=limited_recommended)

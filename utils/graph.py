@@ -1,3 +1,4 @@
+import heapq
 class Graph:
     def __init__(self):
         self.graph = {}  
@@ -103,7 +104,7 @@ class Graph:
     def dijkstra(self, start):
         import heapq
 
-        distances = {node: float('-inf') for node in self.graph}
+        distances = {node: float('inf') for node in self.graph}
         distances[start] = 0
         priority_queue = [(0, start)]
         visited = set()
