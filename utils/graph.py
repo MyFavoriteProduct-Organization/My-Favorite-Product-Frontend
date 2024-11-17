@@ -103,13 +103,14 @@ class Graph:
     def dijkstra(self, start):
         import heapq
 
-        distances = {node: float('inf') for node in self.graph}
+        distances = {node: float('-inf') for node in self.graph}
         distances[start] = 0
         priority_queue = [(0, start)]
         visited = set()
 
         while priority_queue:
             current_distance, current_node = heapq.heappop(priority_queue)
+            current_distance = -current_distance
 
             if current_node in visited:
                 continue
@@ -119,9 +120,9 @@ class Graph:
             for neighbor, weight in self.graph[current_node]:
                 distance = current_distance + weight
 
-                if distance < distances[neighbor]:
+                if distance > distances[neighbor]:
                     distances[neighbor] = distance
-                    heapq.heappush(priority_queue, (distance, neighbor))
+                    heapq.heappush(priority_queue, (-distance, neighbor))
 
         # Crear un diccionario de nodos recomendados con sus distancias
         recommended = {node: self.parent[node]['info'] for node in distances if node != start}
