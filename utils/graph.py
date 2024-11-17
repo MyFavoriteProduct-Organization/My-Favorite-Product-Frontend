@@ -60,7 +60,11 @@ class Graph:
         if neighbor_id not in self.graph[node]:
             self.graph.setdefault(node, []).append((neighbor_id, weight))
             self.graph.setdefault(neighbor_id, []).append((node, weight))
-            self.parent[neighbor_id]['connection'] += 1
+            if self.parent[node]['connection'] <= 3:
+                self.parent[neighbor_id]['connection'] += 1
+            else:
+                self.parent[neighbor_id]['connection'] = 3
+        
 
 
         
@@ -102,8 +106,6 @@ class Graph:
         return visited
 
     def dijkstra(self, start):
-        import heapq
-
         distances = {node: float('inf') for node in self.graph}
         distances[start] = 0
         priority_queue = [(0, start)]
